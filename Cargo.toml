@@ -1,0 +1,124 @@
+[package]
+name = "macos-testsuite"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest_wasi = { version = "0.11.15", features = ["json"] }
+tokio_wasi = { version = "1.25", features = [
+    "rt",
+    "net",
+    "time",
+    "macros",
+    "io-util",
+    "fs",
+] }
+tokio-util_wasi = "0.7.5"
+tokio-stream_wasi = "0.1.11"
+futures = { version = "0.3.0", features = ["async-await"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3.1", default-features = false, features = [
+    "fmt",
+    "ansi",
+    "env-filter",
+    "tracing-log",
+] }
+hyper_wasi = { version = "0.15", features = ["full"] }
+pretty_env_logger = "0.4.0"
+wasmedge_rustls_api = { version = "0.1", features = ["tokio_async"] }
+wasmedge_hyper_rustls = "0.1.0"
+bytes = "1"
+warp_wasi = "0.3"
+env_logger = "0.10.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0" }
+tokio-postgres_wasi = "0.7"
+mysql_async_wasi = "0.31"
+anyhow = "1.0"
+chrono = { version = "0.4.19", features = ["serde"] }
+redis_wasi = "0.22"
+eyre = "0.6.5"
+wasmedge-anna-client = { git = "https://github.com/WasmEdge/wasmedge-anna-client" }
+sqlx_wasi = { version = "0.6.2", features = [
+    "postgres",
+    "mysql",
+    "runtime-tokio-rustls",
+] }
+structopt = "0.3"
+rskafka_wasi = "0.3"
+futures-util = "0.3"
+
+# examples
+## tokio
+[[example]]
+name = "tokio_hello_world"
+path = "examples/tokio/hello_world.rs"
+[[example]]
+name = "tokio_chat"
+path = "examples/tokio/chat.rs"
+[[example]]
+name = "tokio_echo"
+path = "examples/tokio/echo.rs"
+
+## hyper
+[[example]]
+name = "hyper_client"
+path = "examples/hyper/client.rs"
+[[example]]
+name = "hyper_client_https"
+path = "examples/hyper/client_https.rs"
+[[example]]
+name = "hyper_server"
+path = "examples/hyper/server.rs"
+[[example]]
+name = "hyper_warp"
+path = "examples/hyper/warp.rs"
+
+## reqwest
+[[example]]
+name = "reqwest_client"
+path = "examples/reqwest/client.rs"
+[[example]]
+name = "reqwest_form"
+path = "examples/reqwest/form.rs"
+[[example]]
+name = "reqwest_json_dynamic"
+path = "examples/reqwest/json_dynamic.rs"
+[[example]]
+name = "reqwest_json_typed"
+path = "examples/reqwest/json_typed.rs"
+
+## postgres
+[[example]]
+name = "postgres_main"
+path = "examples/postgres/main.rs"
+
+## mysql
+[[example]]
+name = "mysql_main"
+path = "examples/mysql/main.rs"
+
+## redis
+[[example]]
+name = "redis_main"
+path = "examples/redis/main.rs"
+
+## anna
+[[example]]
+name = "anna_putget"
+path = "examples/anna/putget.rs"
+
+
+## kafka
+[[example]]
+name = "kafka_main"
+path = "examples/kafka/main.rs"
+
+
+## sqlx
+[[example]]
+name = "sqlx_mysql"
+path = "examples/sqlx/mysql.rs"
+[[example]]
+name = "sqlx_postgres"
+path = "examples/sqlx/postgres.rs"
